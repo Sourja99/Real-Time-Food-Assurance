@@ -1,18 +1,12 @@
-from pyexpat import model
-from re import A, X
-from turtle import ht
 from matplotlib.ft2font import LOAD_VERTICAL_LAYOUT
 import numpy as np
 import pandas as pd
 import streamlit as st
 import webbrowser
-import pickle
-#from collections.abc import Iterable
-# import scipy.stats as stats
+# import pickle
 from gsheetsdb import connect
-
-
 from PIL import Image
+
 
 pickle_in = open("models/gassensor.pkl","rb")
 model=pickle.load(pickle_in)
