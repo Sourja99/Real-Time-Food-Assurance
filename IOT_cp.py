@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 import webbrowser
-# import pickle
+import pickle
 from gsheetsdb import connect
 from PIL import Image
 
