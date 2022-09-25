@@ -1,7 +1,7 @@
 # from pyexpat import model
 # from re import A, X
 # from turtle import ht
-from matplotlib.ft2font import LOAD_VERTICAL_LAYOUT
+#from matplotlib.ft2font import LOAD_VERTICAL_LAYOUT
 import numpy as np
 import pandas as pd
 import streamlit as st
