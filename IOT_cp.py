@@ -306,7 +306,8 @@ def main():
         y = [data1]
         #fig = px.line(x=x ,y =y,labels={'x':'x', 'y':'sin(x)'})
         fig1 = px.line(df_gsheet, x=x, y=y ,labels={'x':'Time', 'y':'Gas(ppm)'})
-        fig1.show()
+        gas_plot = fig1.show()
+        st.write(gas_plot)
 
     
     with col2:
