@@ -168,18 +168,27 @@ def main():
 #        st.write(df_gsheet)
         conn = connect()
 
+#         @st.cache(ttl=1)
+#         def run_query(query):
+#             rows = conn.execute(query)
+#             rows = rows.fetchall()
+#             return rows
+
+#         sheet_url = st.secrets["public_gsheets_url"]
+#         df_gsheet = pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_url}/export?format=csv")
+#         rows = run_query(f'SELECT * FROM "{df_gsheet}"')
+
+#         df_gsheet = pd.DataFrame(rows)
+#         st.write(df_gsheet)
         @st.cache(ttl=1)
-        def run_query(query):
-            rows = conn.execute(query)
-            rows = rows.fetchall()
-            return rows
+        def myfunctions():
+            sheet_id = "16ciPmGxI4p6_a1VdE1lwNNplm1OF0-KZTFPCzczckoo"
 
-        sheet_url = st.secrets["public_gsheets_url"]
-        df_gsheet = pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_url}/export?format=csv")
-        rows = run_query(f'SELECT * FROM "{df_gsheet}"')
+            df_gsheet = pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv")
+              # # st.write(df)
+            st.write(df_gsheet)
 
-        df_gsheet = pd.DataFrame(rows)
-        st.write(df_gsheet)
+        myfunctions()
 
 
 
