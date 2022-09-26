@@ -287,7 +287,7 @@ def main():
 
     st.title("Combined Graph Information")
 
-    col1, col2 = st.columns([0.6,3])
+    col1, col2 = st.columns([0.7,3.3])
 
     sheet_id = "16ciPmGxI4p6_a1VdE1lwNNplm1OF0-KZTFPCzczckoo"
     df_gsheet = pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv")
@@ -300,8 +300,10 @@ def main():
 
 
     with col1:
+        st.write("")
         x_axis_val = st.selectbox('Select the X-axis', options=df_gsheet.columns)
         y_axis_val = st.selectbox('Select the Y-axis', options=df_gsheet.columns)
+        col = st.color_picker('Select the plot color')
 
         # plot = px.scatter(df_gsheet, x=x_axis_val, y=y_axis_val)
         # st.plotly_chart(plot, use_container_width=True)
@@ -316,7 +318,9 @@ def main():
 
     
     with col2:
+        
         plot = px.scatter(df_gsheet, x=x_axis_val, y=y_axis_val)
+        plot.update_traces(marker=dict(color=col))
         st.plotly_chart(plot, use_container_width=True)
         
         # x = df_gsheet['Time']
