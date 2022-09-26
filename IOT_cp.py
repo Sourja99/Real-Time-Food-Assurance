@@ -354,8 +354,11 @@ def main():
         #y=  df_gsheet['gas']
         y = [output1,output2,output3]
         #fig = px.line(x=x ,y =y,labels={'x':'x', 'y':'sin(x)'})
-        fig = px.line(df_gsheet, x=x, y=y ,labels={'x':'Time', 'y':''})
-        fig.show()
+        fig = px.line(df_gsheet, x=x, y=y ,color=y)
+
+        plot = px.line(df_gsheet, x=x, y=y, color=y)
+        #plot.update_traces(marker=dict(color=col))
+        st.plotly_chart(plot, use_container_width=True)
     with c3:    
         st.write("")
 
