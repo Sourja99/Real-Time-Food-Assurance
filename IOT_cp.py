@@ -367,7 +367,7 @@ def main():
                                      )
                    )
         
-         st.plotly_chart(plot, use_container_width=True)
+        st.plotly_chart(plot, use_container_width=True)
         
     with c3:    
         st.write("")
