@@ -360,7 +360,7 @@ def main():
         #plot.update_traces(marker=dict(color=col))
        
         
-        newnames = {'output1':'Gas', 'output2': 'Temp', 'output3': 'Humidity'}
+        newnames = {'wide_variable_0':'Gas', 'wide_variable_1': 'Temp', 'wide_variable_2': 'Humidity'}
         plot.for_each_trace(lambda t: t.update(name = newnames[t.name],
                                       legendgroup = newnames[t.name],
                                       hovertemplate = t.hovertemplate.replace(t.name, newnames[t.name])
