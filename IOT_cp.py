@@ -301,6 +301,7 @@ def main():
 
     with col1:
         st.write("")
+        st.write("")
         x_axis_val = st.selectbox('Select the X-axis', options=df_gsheet.columns)
         y_axis_val = st.selectbox('Select the Y-axis', options=df_gsheet.columns)
         col = st.color_picker('Select the plot color')
@@ -320,7 +321,7 @@ def main():
     
     with col2:
         
-        plot = px.scatter(df_gsheet, x=x_axis_val, y=y_axis_val)
+        plot = px.line(df_gsheet, x=x_axis_val, y=y_axis_val)
         plot.update_traces(marker=dict(color=col))
         st.plotly_chart(plot, use_container_width=True)
         
