@@ -287,7 +287,7 @@ def main():
 
     st.title("Combined Graph Information")
 
-    col1, col2 = st.columns([0.7,3.0])
+    col1, col2 = st.columns([0.7,3.1])
 
     sheet_id = "16ciPmGxI4p6_a1VdE1lwNNplm1OF0-KZTFPCzczckoo"
     df_gsheet = pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv")
@@ -300,7 +300,6 @@ def main():
 
 
     with col1:
-        st.write("")
         st.write("")
         st.write("")
         st.write("")
