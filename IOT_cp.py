@@ -180,7 +180,7 @@ def main():
 
 #         df_gsheet = pd.DataFrame(rows)
 #         st.write(df_gsheet)
-        @st.cache(ttl=1)
+        @st.cache(suppress_st_warning=True,ttl=1)
         def myfunctions():
             sheet_id = "16ciPmGxI4p6_a1VdE1lwNNplm1OF0-KZTFPCzczckoo"
 
