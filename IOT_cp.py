@@ -22,8 +22,6 @@ from PIL import Image
 # from gsheetsdb import connect
 
 
-from PIL import Image
-
 pickle_in = open("models/gassensor.pkl","rb")
 model=pickle.load(pickle_in)
 
@@ -40,6 +38,14 @@ def predict_food(moisture,temp,gas):
         x="Your food is safe" 
     
     return x
+
+def get_mail(message):
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login('sourjadippramanik@gmail.com','hanwkkrjhynypdqq')
+    server.sendmail('sourjadippramanik@gmail.com','pramaniksourjadip@gmail.com',message)
+    print('Mail sent')
+    server.quit()
 
 def predict_gas(gas_b):
    # float(gas_b)
@@ -158,7 +164,7 @@ def main():
        # st.success("The food is save")
     st.write('')
     st.write('')
-        # st.write('')
+    # st.write('')
     #header_t = st.title("Our DATASET FOR BANANNA")
 
     html_dataset = """
@@ -168,16 +174,6 @@ def main():
 
     st.write("")
     st.write("")
-#     st.write('')
-#     #header_t = st.title("Our DATASET FOR BANANNA")
-
-#     html_dataset = """
-#     <h2 style="color:white;text-align:center;">Our DATASET FOR BANANNA <a href = "https://github.com/Sourja99/Real-Time-Food-Assurance/blob/main/datasets/IOT_CP_Monitoring%20-%20Sheet1.csv">✅</a></h2>
-#     """
-#     st.markdown(html_dataset,unsafe_allow_html=True)
-
-#     st.write("")
-    
 
 
     html_gas = """
@@ -281,6 +277,16 @@ def main():
     st.write("Latest Data : On {} at {} the food Humidity (%) is {} , Temperature (*C) is {} & Gas (ppm) is {}".format(df_date,df_time,df_humid,df_temp,df_gas))
 
     st.write("")
+
+
+
+    if (df_humid > 70 or df_humid < 70 or df_temp <30 or df_gas >30 or df_gas < 1500 or df_gas > 1500):
+        message = 'Please check your food Environment. Make sure you have optimum moisture(70), temperature(30), and gas(1500)'
+        get_mail(message)
+    
+
+
+        
 
     st.title("Combined Graph Information")
 
