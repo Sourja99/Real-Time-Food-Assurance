@@ -158,15 +158,25 @@ def main():
        # st.success("The food is save")
     st.write('')
     st.write('')
-    st.write('')
+        # st.write('')
     #header_t = st.title("Our DATASET FOR BANANNA")
 
     html_dataset = """
-    <h2 style="color:white;text-align:center;">Our DATASET FOR BANANNA <a href = "https://github.com/Sourja99/Real-Time-Food-Assurance/blob/main/datasets/IOT_CP_Monitoring%20-%20Sheet1.csv">✅</a></h2>
+    <a href = "https://github.com/Sourja99/Real-Time-Food-Assurance/blob/main/datasets/IOT_CP_Monitoring%20-%20Sheet1.csv"><h2 style="color:white;font-family:georgia;text-align:left;">Our DATASET FOR BANANNA ✅ </h2></a>
     """
     st.markdown(html_dataset,unsafe_allow_html=True)
 
     st.write("")
+    st.write("")
+#     st.write('')
+#     #header_t = st.title("Our DATASET FOR BANANNA")
+
+#     html_dataset = """
+#     <h2 style="color:white;text-align:center;">Our DATASET FOR BANANNA <a href = "https://github.com/Sourja99/Real-Time-Food-Assurance/blob/main/datasets/IOT_CP_Monitoring%20-%20Sheet1.csv">✅</a></h2>
+#     """
+#     st.markdown(html_dataset,unsafe_allow_html=True)
+
+#     st.write("")
     
 
 
