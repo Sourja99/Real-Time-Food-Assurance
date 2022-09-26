@@ -133,8 +133,6 @@ def main():
     </style>""", unsafe_allow_html=True)
 
     if  st.button("THINGSPEAK"):
-
-    #if st.button("THINGSpeak"):
         webbrowser.open('https://thingspeak.com/channels/1733229/private_show')  # Go to example.com
 
    
