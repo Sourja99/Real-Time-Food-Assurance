@@ -133,7 +133,8 @@ def main():
     </style>""", unsafe_allow_html=True)
 
     if  st.button("THINGSPEAK"):
-        webbrowser.open_new_tab('https://thingspeak.com/channels/1733229/private_show')  # Go to example.com
+        think_url = st.secrets["thinkspeak_url"]
+        webbrowser.open(think_url)  # Go to example.com
 
    
     st.header("Here, you can see the real time data of the food (BANANNA)")
