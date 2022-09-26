@@ -154,18 +154,30 @@ def main():
     
     with co2:
        # image = Image.open('IOT-info 1.webp')
-       st.cache(ttl=1)
-       def run_query(query):
-        rows = conn.execute(query, headers=1)
-        rows = rows.fetchall()
-        return rows
-        # rows = conn.execute(f'SELECT * FROM "{gsheet_url}"')
-        # return rows
-       sheet_url = st.secrets["public_gsheets_url"]
-       rows = run_query(f'SELECT * FROM "{sheet_url}"')
+#        st.cache(ttl=1)
+#        def run_query(query):
+#         rows = conn.execute(query, headers=1)
+#         rows = rows.fetchall()
+#         return rows
+#         # rows = conn.execute(f'SELECT * FROM "{gsheet_url}"')
+#         # return rows
+#        sheet_url = st.secrets["public_gsheets_url"]
+#        rows = run_query(f'SELECT * FROM "{sheet_url}"')
 
-       df_gsheet = pd.DataFrame(rows)
-       st.write(df_gsheet)
+#        df_gsheet = pd.DataFrame(rows)
+#        st.write(df_gsheet)
+
+        @st.cache(ttl=1)
+        def run_query(query):
+            rows = conn.execute(query, headers=0, names = ['Sr.No.','Date','Time','Humidity(%)','Temperature(*C)','Gas(ppm)'])
+            rows = rows.fetchall()
+            return rows
+
+        sheet_url = st.secrets["public_gsheets_url"]
+        rows = run_query(f'SELECT * FROM "{sheet_url}"')
+
+        df_gsheet = pd.DataFrame(rows)
+        st.write(df_gsheet)
 
 
         # gsheet_url = "https://docs.google.com/spreadsheets/d/16ciPmGxI4p6_a1VdE1lwNNplm1OF0-KZTFPCzczckoo/edit?usp=sharing"
