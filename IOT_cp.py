@@ -345,7 +345,7 @@ def main():
 
     st.title("Combined analysis")
     st.write("")
-    c1, c2, c3 = st.columns([0.8,6,0.8])
+    c1, c2, c3 = st.columns([0.4,6.8,0.4])
 
     with c1:
         st.write("")
@@ -356,9 +356,19 @@ def main():
         #fig = px.line(x=x ,y =y,labels={'x':'x', 'y':'sin(x)'})
         #fig = px.line(df_gsheet, x=x, y=y ,color=y)
 
-        plot = px.line(df_gsheet, x=x, y=y)
+        plot = px.line(df_gsheet, x=x, y=y , labels={'x':'Time', 'y':'Parameters (Same Scale(z score))'})
         #plot.update_traces(marker=dict(color=col))
-        st.plotly_chart(plot, use_container_width=True)
+       
+        
+        newnames = {'output1':'Gas', 'output2': 'Temp', 'output3': 'Humidity'}
+        plot.for_each_trace(lambda t: t.update(name = newnames[t.name],
+                                      legendgroup = newnames[t.name],
+                                      hovertemplate = t.hovertemplate.replace(t.name, newnames[t.name])
+                                     )
+                   )
+        
+         st.plotly_chart(plot, use_container_width=True)
+        
     with c3:    
         st.write("")
 
