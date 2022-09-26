@@ -181,14 +181,16 @@ def main():
 #         df_gsheet = pd.DataFrame(rows)
 #         st.write(df_gsheet)
         @st.cache(suppress_st_warning=True,ttl=1)
-        def myfunctions():
-            sheet_id = "16ciPmGxI4p6_a1VdE1lwNNplm1OF0-KZTFPCzczckoo"
-
-            df_gsheet = pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv")
-              # # st.write(df)
+        def myfunctions(query):
+            #sheet_id = "16ciPmGxI4p6_a1VdE1lwNNplm1OF0-KZTFPCzczckoo"
+            #df_gsheet = pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv")
+                  # # st.write(df)
+            df_gsheet = pd.read_csv(f"{query}")
             st.write(df_gsheet)
 
-        myfunctions()
+        sheet_url = st.secrets["public_gsheets_url"]
+        myfunctions(f'{sheet_url}')
+
 
 
 
