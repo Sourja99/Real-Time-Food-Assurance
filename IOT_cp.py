@@ -166,6 +166,7 @@ def main():
 
 #        df_gsheet = pd.DataFrame(rows)
 #        st.write(df_gsheet)
+        conn = connect()
 
         @st.cache(ttl=1)
         def run_query(query):
@@ -174,10 +175,12 @@ def main():
             return rows
 
         sheet_url = st.secrets["public_gsheets_url"]
-        rows = run_query(f'SELECT * FROM "{sheet_url}"')
+        df_gsheet = pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_url}/export?format=csv")
+        rows = run_query(f'SELECT * FROM "{df_gsheet}"')
 
         df_gsheet = pd.DataFrame(rows)
         st.write(df_gsheet)
+
 
 
         # gsheet_url = "https://docs.google.com/spreadsheets/d/16ciPmGxI4p6_a1VdE1lwNNplm1OF0-KZTFPCzczckoo/edit?usp=sharing"
