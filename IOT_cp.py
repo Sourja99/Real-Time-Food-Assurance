@@ -213,7 +213,9 @@ def main():
         st.write("")
     
     #st.plot()
-   
+    sheet_id = "16ciPmGxI4p6_a1VdE1lwNNplm1OF0-KZTFPCzczckoo"
+    df_gsheet = pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv")
+    st.write('The changes in the sheet are {}'.format(df_gsheet.tail(1)))
 
     html_gas = """
     <div style="background-color:Red;padding:30px">
