@@ -169,7 +169,7 @@ def main():
 
         @st.cache(ttl=1)
         def run_query(query):
-            rows = conn.execute(query, headers=0, names = ['Sr.No.','Date','Time','Humidity(%)','Temperature(*C)','Gas(ppm)'])
+            rows = conn.execute(query)
             rows = rows.fetchall()
             return rows
 
