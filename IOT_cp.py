@@ -355,7 +355,7 @@ def main():
         #fig = px.line(x=x ,y =y,labels={'x':'x', 'y':'sin(x)'})
         #fig = px.line(df_gsheet, x=x, y=y ,color=y)
 
-        plot = px.line(df_gsheet, x=x, y=y , labels={'time':'Time', 'value':'Parameters (Same Scale(z score))'})
+        plot = px.bar(df_gsheet, x=x, y=y , labels={'time':'Time', 'value':'Parameters (Same Scale(z score))'})
         #plot.update_traces(marker=dict(color=col))
        
         
